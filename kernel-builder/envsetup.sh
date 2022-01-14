@@ -147,7 +147,7 @@ function kconfig()
 
 function kclean()
 {
-    make clean CC=clang O=out && make mrproper CC=clang O=out
+    make clean O=out && make mrproper O=out
 }
 # End declaring functions
 # EOL
