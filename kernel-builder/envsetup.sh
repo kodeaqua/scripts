@@ -132,7 +132,7 @@ function kbuild()
         figlet "$KERNEL"
         figlet "$DEVICE"
         echo "============================================"
-        echo "Target: $PROD_DIR/${KERNEL}_${DEVICE}-$(date +"%Y%m%d-%H%M").zip"
+        echo "Target: ${PROD_DIR}/${KERNEL}_${DEVICE}-$(date +"%Y%m%d-%H%M").zip"
         echo "Build completed in $(($DIFF / 60)) minute(s) and $((DIFF % 60)) seconds"
         echo "Compiled by $KBUILD_BUILD_USER at $KBUILD_BUILD_HOST using $(nproc --all) core(s)";
     else
