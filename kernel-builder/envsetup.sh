@@ -142,12 +142,12 @@ function kbuild()
 
 function kconfig()
 {
-    make ${DEVICE}_defconfig O=out
+    make ${DEVICE}_defconfig O=out $MAKE_ARGS
 }
 
 function kclean()
 {
-    make clean O=out && make mrproper O=out
+    make clean O=out $MAKE_ARGS && make mrproper O=out $MAKE_ARGS
 }
 # End declaring functions
 # EOL
