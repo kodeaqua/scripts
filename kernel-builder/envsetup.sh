@@ -59,9 +59,17 @@ fi
 if ! [[ $(which figlet) ]];  then
     sudo apt update -y && sudo apt install figlet -y
 fi
+if ! [[ $(which ccache) ]];  then
+    sudo apt update -y && sudo apt install ccache -y
+fi
 if ! [[ -d $AK3_DIR ]]; then
     git clone $(cat ${CONF_DIR}/ak3) $AK3_DIR
 fi
+
+# Use ccache to save time later
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+ccache -M 8G
 
 # Begin declaring functions
 function setak3()
