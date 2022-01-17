@@ -115,7 +115,7 @@ function setdev()
 function kbuild()
 {
     TIME_START=$(date +"%s")
-    make -j$(nproc --all) O=out $MAKE_ARGS
+    make -j$(nproc --all) O=out ARCH=$ARCH SUBARCH=$SUBARCH $MAKE_ARGS
     if [[ -f $(pwd)/out/arch/${ARCH}/boot/Image ]]; then
         if [[ -f $(pwd)/out/arch/${ARCH}/boot/Image.gz-dtb ]]; then
             cp $(pwd)/out/arch/${ARCH}/boot/Image.gz-dtb $AK3_DIR
@@ -142,12 +142,12 @@ function kbuild()
 
 function kconfig()
 {
-    make ${DEVICE}_defconfig O=out $ARCH $SUBRACH $MAKE_ARGS
+    make ${DEVICE}_defconfig O=out ARCH=$ARCH SUBARCH=$SUBARCH $MAKE_ARGS
 }
 
 function kclean()
 {
-    make clean O=out $ARCH $SUBRACH $MAKE_ARGS && make mrproper O=out $ARCH $SUBRACH $MAKE_ARGS
+    make clean O=out ARCH=$ARCH SUBARCH=$SUBARCH $MAKE_ARGS && make mrproper O=out ARCH=$ARCH SUBARCH=$SUBARCH $MAKE_ARGS
 }
 # End declaring functions
 # EOL
