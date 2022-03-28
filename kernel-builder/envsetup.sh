@@ -1,5 +1,6 @@
 # This script created by Kodeaqua <https://github.com/kodeaqua>
 # For those who lazy to setting up environment for building android kernel
+
 # Constants (do not change!)
 export OG_PATH="$PATH"
 export CONF_DIR="${HOME}/.config/${USER}"
